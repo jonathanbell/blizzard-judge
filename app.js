@@ -72,11 +72,7 @@ app.use((req, res, next) => {
 // https://zeit.co/docs/guides/redirect#2.-redirect-inside-your-app
 app.use((req, res, next) => {
   // If the request doesn't come from blizzardjudge.com or from the Zeit deployment URL:
-  if (
-    (req.hostname !== process.env.APPHOST ||
-      req.hostname !== process.env.NOW_URL) &&
-    req.hostname !== 'localhost'
-  ) {
+  if (req.hostname !== process.env.APPHOST && req.hostname !== 'localhost') {
     // Redirect to blizzardjudge.com keeping the pathname and querystring intact.
     return res.redirect(`https://${process.env.APPHOST}${req.originalUrl}`);
   }

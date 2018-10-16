@@ -1,3 +1,4 @@
 node_modules/
 variables.env
+variables.production.env
 now.json

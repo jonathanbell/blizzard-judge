@@ -15,6 +15,7 @@ After a blizzard has been reviewed 2 or more times, it will be added to the lege
 1. Configure your SMTP email server credentials and addresses/names inside `variables.env` (edit any key that begins with `MAIL_`)
 1. Configure your [Cloudinary](https://cloudinary.com) API credentials inside `variables.env` (edit any key that begins with `CLOUDINARY_`)
 1. Add a unique application `KEY` and `SECRET` to `variables.env`
+1. Optional: copy `./variables.env` to `./variables.production.env` (for production values) and edit as you see fit.
 1. `npm run dev`
 1. Visit `http://localhost:4321` Party on Wayne.
 

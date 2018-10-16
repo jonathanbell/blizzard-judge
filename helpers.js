@@ -5,7 +5,7 @@ const md5 = require('md5');
 
 // Site details ----------------------------------------------------------------
 exports.siteName = 'Blizzard Judge';
-exports.siteDescription = 'Rate and review Dairy Queen Blizzards online.';
+exports.siteDescription = 'Rate and review Dairy Queen® Blizzards online.';
 
 // Moment JS - make dates and times look more human-readable
 exports.moment = require('moment');

@@ -31,7 +31,7 @@ Blizzard Judge uses the following:
 - Axios
 - [Passport.js](http://www.passportjs.org/) (user authentication)
 - Pug (for templating)
-- WebPack
+- Webpack
 
 ## Why?
 

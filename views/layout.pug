@@ -2,7 +2,10 @@ doctype html
 html(lang="en")
 
   head
-    title= `${title.replace(/<[^>]+>/g, '')} | ${helpers.siteName}`
+    if title
+      title= `${title.replace(/<[^>]+>/g, '')} | ${helpers.siteName}`
+    else
+      title= `${helpers.siteName}`
     link(rel='stylesheet', href='/dist/style.css')
     link(rel="icon" type="image/png" sizes="64x64" href="/images/ice-cream-judge-64x64.png")
     meta(name="viewport" content="width=device-width, initial-scale=1")

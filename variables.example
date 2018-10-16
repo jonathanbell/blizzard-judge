@@ -2,6 +2,7 @@
 NODE_ENV=development
 # Comment in before deploying to production
 #NODE_ENV=production
+APPHOST=blizzardjudge.com
 DATABASE=mongodb://dbname:dburl:dbport/db
 MAIL_USER=user
 MAIL_PASS=pass

@@ -1171,8 +1171,8 @@ form.heart .heart__button {
         margin-bottom: 0; } }
     @media (max-width: 800px) {
       .blizzard > .blizzard__link {
-        margin-top: -4rem;
-        margin-bottom: 2rem; } }
+        margin-top: 10px;
+        margin-bottom: 10px; } }
   @media (min-width: 800px) {
     .blizzard {
       display: -ms-grid;

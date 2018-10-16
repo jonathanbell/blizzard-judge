@@ -1,9 +1,0 @@
-{
-  "name": "blizzard-judge",
-  "alias": ["www.blizzardjudge.com", "blizzardjudge.com"],
-  "dotenv": "variables.production.env",
-  "public": false,
-  "engines": {
-    "node": ">=7.6.0 <=9.11.2"
-  }
-}

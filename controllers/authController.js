@@ -60,9 +60,10 @@ exports.forgotPassword = async (req, res) => {
     filename: 'password-reset'
   });
 
+  req.logout();
   req.flash(
     'success',
-    'Your password reset link has been sent via email. Please allow a few moments for it to arrive and check your spam folder if you do not see it.'
+    'Your password reset link has been sent via email. Please allow a few moments for it to arrive and check your spam folder if you do not see it. You are now logged out.'
   );
 
   res.redirect('/login');

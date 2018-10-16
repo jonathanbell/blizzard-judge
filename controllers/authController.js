@@ -2,13 +2,14 @@ const passport = require('passport');
 const crypto = require('crypto');
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
+const promisify = require('es6-promisify');
 const passwordValidator = require('password-validator');
 const email = require('../handlers/email');
 
 exports.login = passport.authenticate('local', {
   failureRedirect: '/login',
   failureFlash:
-    'Login failed! Please try again or <a href="mailto:jonathanbell.ca@gmail.com">email us</a> for help.',
+    'Login failed! Please try again or <a href="/forgot">reset your password</a> if you forgot it.',
   successRedirect: '/',
   successFlash:
     'Right on! You are now logged in. You can now review <a href="/blizzards">all the blizzards</a>!'
@@ -130,19 +131,12 @@ exports.update = async (req, res) => {
   });
 
   if (!user) {
-    req.flash('error', 'Password reset token is invalid or has expired');
+    req.flash('error', 'Your password reset token is invalid or has expired.');
     return res.redirect('/login');
   }
 
-  user.setPassword(req.body.password, function(err, user) {
-    if (err) {
-      req.flash('Error while setting new password! Please try again.');
-      res.render('resetPassword', {
-        title: 'Password reset: please try again'
-      });
-      return;
-    }
-  });
+  const setPassword = promisify(user.setPassword, user);
+  await setPassword(req.body.password);
 
   // Setting these values to `undefined` will remove these fields from the user
   // in the DB.

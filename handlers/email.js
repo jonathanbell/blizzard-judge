@@ -36,9 +36,8 @@ exports.send = async options => {
       console.error(
         `There was an error while sending an email to ${mailOptions.to}. ${err}`
       );
+    } else {
+      console.log(`Email sent to ${mailOptions.to}`);
     }
-    // else {
-    //   console.log(`Email sent to ${mailOptions.to}`);
-    // }
   });
 };

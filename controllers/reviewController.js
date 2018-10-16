@@ -28,8 +28,6 @@ exports.addReview = async (req, res) => {
     }
   );
 
-  // console.log(review);
-
   req.flash('success', 'Thanks! Your new review has been added.');
   res.redirect('back');
 };

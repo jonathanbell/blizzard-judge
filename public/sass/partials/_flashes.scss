@@ -1,0 +1,77 @@
+@keyframes slideIn {
+  0% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+.flash {
+  background: $white;
+  margin-top: 1rem;
+  padding: 1.5rem;
+  position: relative;
+  z-index: 3;
+  border-radius: 5px;
+  display: flex;
+  animation: slideIn forwards 0.1s ease-in-out 2;
+  animation-timing-function: cubic-bezier(0.01, 1.67, 0.57, 1);
+
+  & + .flash {
+    animation-delay: 0.55s;
+    & + .flash {
+      animation-delay: 0.66s;
+    }
+  }
+
+  &__text {
+    flex: 1;
+  }
+
+  &__remove {
+    background: none;
+    border: 0;
+    cursor: pointer;
+    &:hover {
+      color: $yellow;
+    }
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    background: $white;
+    position: absolute;
+    width: calc(100% - 16px);
+    height: calc(100% - 16px);
+    top: 8px;
+    left: 8px;
+    z-index: -1;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+  }
+
+  &--success {
+    background: $rainbowGrad;
+  }
+
+  &--error {
+    background: $red;
+  }
+
+  &--info {
+    background: $dark-blue;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  @media (min-width: $medium) {
+    margin-bottom: 1rem;
+  }
+}

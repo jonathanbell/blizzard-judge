@@ -1,0 +1,26 @@
+mixin ratingsChart(blizzard)
+  div.blizzard__detail--chart-wrapper
+          p.blizzard__detail--review-count
+            a(href=`/blizzard/${blizzard.slug}#reviews`) #{blizzard.reviews.length} #{`${blizzard.reviews.length == 1 ? 'Review' : 'Reviews'}`}
+          div.blizzard__detail--rating-details
+            div.blizzard__detail--ratings-chart
+              each val in [5, 4, 3, 2, 1]
+                - let counter = 0
+                div.row
+                  if val == 5
+                    span.ranking Excellent
+                  if val == 4
+                    span.ranking Good
+                  if val == 3
+                    span.ranking Average
+                  if val == 2
+                    span.ranking Poor
+                  if val == 1
+                    span.ranking Terrible
+                  div.bar
+                    each review in blizzard.reviews
+                      if review.rating == val
+                        - counter = counter + 1
+                    div.fill(style=`width:${(counter / blizzard.reviews.length) * 100}%`)
+                  if counter
+                    div.percentage #{`${Math.floor((counter / blizzard.reviews.length) * 100)}`}%

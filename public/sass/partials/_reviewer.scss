@@ -1,0 +1,74 @@
+.reviewer {
+  background: $white;
+  box-shadow: 0 0px 5px rgba(0, 0, 0, 0.123);
+  margin: 1rem 0;
+  padding: 1rem 1.5rem 1.25rem 1.5rem;
+
+  &__heading {
+    font-size: 2rem;
+    margin: 0;
+    color: $blue;
+  }
+
+  p {
+    display: block;
+    font-size: 1.25rem;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  &__stars {
+    display: flex;
+
+    label {
+      padding: 0 0 1rem 0;
+    }
+
+    input {
+      display: none;
+
+      &:checked {
+        & ~ label {
+          color: $yellow;
+        }
+      }
+
+      & + label {
+        font-size: 0;
+        color: $dqblue;
+
+        &:before {
+          content: '★';
+          font-size: 2rem;
+        }
+
+        // reverse dom order
+        &[for='star5'] {
+          order: 5;
+        }
+        &[for='star4'] {
+          order: 4;
+        }
+        &[for='star3'] {
+          order: 3;
+        }
+        &[for='star2'] {
+          order: 2;
+        }
+        &[for='star1'] {
+          order: 1;
+        }
+
+        &:hover,
+        &:hover ~ label {
+          color: $yellow;
+        }
+      }
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    margin-bottom: 0.5rem;
+  }
+}

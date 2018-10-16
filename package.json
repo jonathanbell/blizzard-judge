@@ -1,0 +1,89 @@
+{
+  "name": "blizzard-judge",
+  "version": "0.1.0",
+  "description": "Vote on, review and favorite DQ Blizzards.",
+  "author": "Jonathan Bell <jonathanbell.ca@gmail.com> (https://jonathanbell.info/)",
+  "keywords": [
+    "ice cream",
+    "blizzard",
+    "judge",
+    "dairy queen"
+  ],
+  "homepage": "https://github.com/jonathanbell/blizzard-judge#readme",
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/jonathanbell/blizzard-judge/issues",
+    "email": "jonathanbell.ca@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jonathanbell/blizzard-judge.git"
+  },
+  "license": "AGPL-3.0",
+  "engines": {
+    "node": ">=7.6.0 <=9.11.2"
+  },
+  "scripts": {
+    "watch": "nodemon ./start.js --ignore public/",
+    "assets": "webpack -w --display-max-modules 0",
+    "dev": "concurrently \"npm run watch\" \"npm run assets\"",
+    "load-dq-data": "node ./data/load-dq-data.js",
+    "start": "node ./start.js",
+    "deploy": "now --dotenv=variables.env"
+  },
+  "browserslist": [
+    "last 1 version",
+    "> 5% in US",
+    "node 9",
+    "not dead"
+  ],
+  "dependencies": {
+    "axios": "0.15.3",
+    "body-parser": "^1.18.3",
+    "cloudinary": "^1.11.0",
+    "connect-flash": "0.1.1",
+    "connect-mongo": "1.3.2",
+    "cookie-parser": "1.4.3",
+    "dompurify": "0.8.5",
+    "dotenv": "4.0.0",
+    "es6-promisify": "5.0.0",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "express-validator": "3.1.2",
+    "html-to-text": "3.2.0",
+    "juice": "^4.3.2",
+    "md5": "2.2.1",
+    "moment": "^2.22.2",
+    "mongoose": "5.1.0",
+    "mongoose-mongodb-errors": "0.0.2",
+    "multer": "1.3.0",
+    "multer-storage-cloudinary": "^2.2.1",
+    "nodemailer": "4.0.1",
+    "passport": "0.3.2",
+    "passport-local": "1.0.0",
+    "passport-local-mongoose": "4.0.0",
+    "password-validator": "^4.1.1",
+    "pug": "2.0.0-beta6",
+    "slugs": "0.1.3",
+    "validator": "7.0.0",
+    "xss": "^1.0.3"
+  },
+  "devDependencies": {
+    "autoprefixer": "6.7.7",
+    "babel-core": "6.24.0",
+    "babel-loader": "6.4.0",
+    "babel-preset-env": "^1.6.0",
+    "cheerio": "^1.0.0-rc.2",
+    "concurrently": "3.4.0",
+    "cross-fetch": "^2.2.2",
+    "css-loader": "0.28.11",
+    "extract-text-webpack-plugin": "2.1.0",
+    "node-sass": "^4.7.2",
+    "nodemon": "^1.18.3",
+    "postcss-loader": "1.3.3",
+    "sass-loader": "6.0.3",
+    "simple-lightbox": "^2.1.0",
+    "uuid": "^3.3.2",
+    "webpack": "2.2.1"
+  }
+}

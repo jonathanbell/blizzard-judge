@@ -1,0 +1,24 @@
+extends layout
+
+include mixins/_blizzard
+
+block content
+
+  article.main-content
+    h1 #{title}
+    if tagline
+      p= tagline
+    .blizzards
+      each blizzard in blizzards
+        +blizzard(blizzard)
+
+  if suggestedBlizzard
+    article.suggested-blizzard
+      h1.suggested-blizzard__heading Hey, you look hungry...
+      if suggestedBlizzard.smartGuess
+        p Based on community reviews and your impeccable tastes in whipped soft serve, we've found a little suggestion for you that you have not yet reviewed.
+      else
+        p The community thinks highly of this blizzard and we notice that you haven't tried it yet. Well, at least you haven't reviewed it on Blizzard Judge (yet). I'd say it's time to head to DQ, try it out, and #[a(href=`/blizzard/${suggestedBlizzard.slug}#reviews`) tell us if we were right]. Do you like this blizzard?
+      br
+      .blizzards
+        +blizzard(suggestedBlizzard)

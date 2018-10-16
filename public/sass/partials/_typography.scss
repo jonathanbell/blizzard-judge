@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css?family=Niramit');
+
+@font-face {
+  font-family: 'PlutoBold-Italic';
+  src: url('/fonts/237A5F_0_0.eot');
+  src: url('/fonts/237A5F_0_0.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/237A5F_0_0.woff') format('woff'),
+    url('/fonts/237A5F_0_0.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'PlutoBold';
+  src: url('/fonts/237A5F_1_0.eot');
+  src: url('/fonts/237A5F_1_0.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/237A5F_1_0.woff') format('woff'),
+    url('/fonts/237A5F_1_0.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'PlutoHeavy';
+  src: url('/fonts/237A5F_2_0.eot');
+  src: url('/fonts/237A5F_2_0.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/237A5F_2_0.woff') format('woff'),
+    url('/fonts/237A5F_2_0.ttf') format('truetype');
+}
+
+body {
+  color: $black;
+  font-family: $font-fun;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 3.125rem;
+  font-family: $font-dq;
+  font-weight: 600;
+  letter-spacing: -1px;
+
+  &.form-heading {
+    background: $white;
+    padding: 1rem;
+    border: 5px dashed $dqred;
+    border-radius: 3px;
+    color: $dqblue;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    margin-top: 0; // ???
+    margin-bottom: 0;
+
+    a {
+      color: $dqblue;
+
+      &:hover {
+        color: $dqred;
+      }
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $black;
+}
+
+p a {
+  border-bottom: 2px solid $yellow;
+
+  &:hover {
+    border-bottom: 2px dashed $yellow;
+  }
+}
+
+p {
+  line-height: 1.5;
+}
+
+.main-content > h1 {
+  color: $dqblue;
+}

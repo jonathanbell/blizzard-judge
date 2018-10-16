@@ -1,0 +1,255 @@
+.blizzard {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(0, 0, 0, 0.05);
+  border: 1px solid $light-blue;
+  margin-bottom: 2rem;
+
+  &__details {
+    padding: 1rem;
+
+    @media (min-width: $medium) {
+      padding: 0.5rem;
+    }
+  }
+
+  &__detail {
+    &--review-count {
+      margin-bottom: 1.5rem;
+      line-height: initial;
+      text-align: center;
+      display: block;
+
+      a:hover {
+        border-bottom: 2px dashed $blue;
+      }
+    }
+  }
+
+  &__action {
+    svg {
+      width: 25px;
+      fill: white;
+    }
+
+    &--heart {
+      position: relative;
+      top: -3.5rem;
+      left: -3.5rem;
+      z-index: 3;
+
+      @media (min-width: $medium) {
+        grid-column: -1;
+        grid-row: -1;
+        width: 1px;
+        top: -4rem;
+        left: -4rem;
+      }
+    }
+
+    &--view-online {
+      z-index: 999;
+    }
+
+    &--edit {
+      a {
+        border-bottom: 0;
+      }
+    }
+
+    &--review {
+      grid-column: 2;
+      position: relative;
+
+      svg {
+        width: 40px;
+      }
+
+      @media (min-width: $medium) {
+        order: 3;
+      }
+    }
+
+    &--edit {
+      grid-column: 3;
+    }
+
+    &--count {
+      position: absolute;
+      bottom: 5px;
+      right: -5px;
+      font-size: 14px;
+    }
+  }
+
+  &__actions {
+    padding: 10px 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    color: $white;
+    align-items: center;
+    justify-items: center;
+    background: $purple;
+
+    @media (min-width: $medium) {
+      margin: 0;
+      padding: 0 0 0.333rem 0;
+      background: transparent;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      color: $blue;
+
+      svg {
+        fill: $blue;
+      }
+    }
+
+    @media (max-width: $small) {
+      margin-top: 1rem;
+    }
+  }
+
+  &__photo {
+    transition: all 0.25s;
+    transform: rotate(0deg);
+
+    &:hover {
+      transform: rotate(180deg);
+    }
+  }
+
+  & > &__link {
+    align-self: center;
+    justify-self: center;
+    display: block;
+    text-align: center;
+
+    @media (min-width: $medium) {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: $medium) {
+      margin-top: -4rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  @media (min-width: $medium) {
+    display: grid;
+    grid-template-columns: 2fr 1fr 9fr 1fr;
+    grid-gap: 1rem;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.1), 0 3px 15px rgba(0, 0, 0, 0.05);
+    padding: 0.5rem 1rem 0.5rem 1.5rem;
+    margin-bottom: 2rem;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.blizzard__detail--average-rating {
+  //justify-self: center;
+  color: $dqblue;
+  font-weight: 800;
+  font-size: 60px;
+  border: 5px dashed lighten($dqred, 12.5%);
+  border-radius: 50%;
+  font-family: $font-dq;
+
+  width: 150px;
+  text-align: center;
+  margin: auto;
+  font-size: 73px;
+  height: 150px;
+  padding-top: 12px;
+}
+
+.blizzard__detail--name {
+  margin: 0;
+  text-align: center;
+
+  a {
+    color: darken($grey, 50%);
+    color: $dqred;
+  }
+
+  @media (max-width: $small) {
+    font-size: 2rem;
+  }
+}
+
+.blizzard__detail--ratings-chart {
+  vertical-align: middle;
+  font-size: 13px;
+  margin-bottom: 1rem;
+
+  .row {
+    grid-gap: 3px;
+    display: grid;
+    grid-template-rows: 10px;
+    grid-template-columns: 51px 19fr 3fr;
+    margin-bottom: 3px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  .ranking,
+  .percentage {
+    align-self: center;
+  }
+
+  .bar,
+  .fill {
+    border-radius: 3px;
+  }
+
+  .bar {
+    background: $grey;
+  }
+
+  .fill {
+    background: $yellow;
+    height: 100%;
+  }
+}
+
+.blizzard__detail--official-docs {
+  text-align: center;
+  display: block;
+  color: $white;
+  font-size: 12px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  img {
+    margin-top: 4px;
+    width: 39px;
+
+    @media (min-width: $medium) {
+      margin-bottom: 0.9rem;
+      line-height: 0;
+      font-size: 0;
+    }
+  }
+}
+
+.suggested-blizzard {
+  border-radius: 5px;
+
+  &__heading {
+    background: $grad;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .blizzard__detail--name {
+    background: $rainbowGrad;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}

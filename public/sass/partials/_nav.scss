@@ -1,0 +1,193 @@
+.nav {
+  box-shadow: 0 1px 0 rgba(12, 13, 14, 0.1), 0 1px 6px rgba(59, 64, 69, 0.1);
+  background: $light-grey;
+
+  .inner {
+    grid-template-rows: 50px;
+    justify-items: center;
+    align-items: center;
+    padding: 1rem;
+
+    @media (min-width: $small) {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: 50px 50px;
+      grid-auto-flow: dense;
+    }
+
+    @media (min-width: $medium) {
+      grid-template-rows: 50px;
+      grid-auto-flow: initial;
+    }
+
+    @media (min-width: $large) {
+      padding: 0.5rem 0;
+    }
+
+    @media (max-width: $small) {
+      padding-bottom: 0;
+    }
+  }
+
+  &__section {
+    &--home,
+    &--search {
+      justify-self: normal;
+    }
+
+    &--search {
+      @media (min-width: $small) {
+        grid-column: 1 / -1;
+      }
+      @media (min-width: $medium) {
+        grid-column: span 6;
+        padding-left: 1rem;
+      }
+    }
+
+    &--pages,
+    &--user {
+      @media (max-width: $small) {
+        display: inline-block;
+        position: relative;
+        width: 49%;
+      }
+    }
+
+    &--pages {
+      padding-top: 1rem;
+      justify-self: center;
+      padding-left: 3px;
+
+      svg {
+        fill: $orange;
+      }
+
+      .nav__link--top-blizzards {
+        svg {
+          fill: $purple;
+        }
+      }
+
+      .nav__link--favorite {
+        svg {
+          fill: $green;
+        }
+      }
+
+      .heart-count {
+        position: relative;
+        top: -2rem;
+        left: -0.333rem;
+        color: darken($grey, 20%);
+        font-size: 0.9rem;
+
+        @media (min-width: $medium) and (max-width: 913px) {
+          display: none;
+        }
+      }
+
+      @media (min-width: $small) {
+        grid-column: 2 / 6;
+        padding-left: 0.5rem;
+      }
+
+      @media (min-width: $medium) {
+        grid-column: span 2;
+        justify-self: start;
+      }
+    }
+
+    &--user {
+      justify-self: end;
+      grid-column: 7 / -1;
+
+      .button--quiet.button--logout {
+        @media (min-width: $small) {
+          top: -1rem;
+          position: relative;
+        }
+      }
+
+      @media (min-width: $medium) {
+        grid-column: span 3;
+      }
+
+      @media (max-width: $small) {
+        text-align: right;
+      }
+    }
+  }
+
+  &__link {
+    padding: 3px;
+
+    svg {
+      width: 25px;
+      transition: all 0.333s;
+      opacity: 0.8;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      @media (max-width: $small) {
+        width: 30px;
+      }
+    }
+
+    &--logo {
+      display: grid;
+      grid-template-rows: 50px;
+      grid-template-columns: 1fr 3fr;
+      align-items: center;
+      justify-items: left;
+      font-family: 'PlutoHeavy', 'Comic Sans MS', 'Comic Sans', cursive;
+
+      span {
+        color: $black;
+        font-size: 1.5rem;
+      }
+
+      svg {
+        width: 50px;
+        padding-top: 5px;
+      }
+    }
+  }
+
+  .button {
+    margin: 0 0.25rem;
+
+    @media (max-width: $small) {
+      position: relative;
+      top: -1rem;
+      padding: 0.5rem;
+    }
+  }
+}
+
+// Mallet annimation
+@keyframes bounce {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(17deg);
+  }
+}
+.nav__link--logo {
+  svg {
+    animation-name: bounce;
+    animation-duration: 0.333s;
+    animation-iteration-count: 2;
+    animation-direction: alternate;
+    animation-timing-function: ease-out;
+    animation-play-state: paused;
+  }
+
+  &:hover svg {
+    animation-play-state: running;
+  }
+}

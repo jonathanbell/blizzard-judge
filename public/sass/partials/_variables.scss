@@ -1,0 +1,47 @@
+// Breakpoints
+$small: 599px;
+$medium: 800px;
+$large: 1200px;
+
+// Colors
+$white: #fff;
+$black: #3e3e3e;
+$purple: rebeccapurple;
+$orange: orange;
+$yellow: #ffc40e;
+$pink: #e782c1;
+$green: #85b681;
+$bright-green: chartreuse;
+$red: #e50714;
+$blue: #28a3fb;
+$dark-blue: #07c;
+$light-blue: #e1ecf4;
+$grey: #e4e4e4;
+$light-grey: #fafafb;
+$dqred: #ee3a43;
+$dqblue: #007ac3;
+
+// Fonts
+$font-basic: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-fun: 'Niramit', sans-serif;
+$font-dq: 'PlutoBold', sans-serif;
+$font-dq-italic: 'PlutoBold-Italic', Arial;
+
+// Gradients and shadows
+$grad: linear-gradient(
+  to right,
+  $orange,
+  $yellow,
+  $green,
+  $light-blue,
+  $blue,
+  $purple
+);
+$rainbowGrad: linear-gradient(
+  90deg,
+  #48ded4 0%,
+  #a026bf 20%,
+  #e82c75 60%,
+  $yellow 85%,
+  #48ded4 95%
+);

@@ -1,0 +1,77 @@
+.marketing-card {
+  background: $dqblue;
+  font-size: 1.5rem;
+  padding-bottom: 1.5rem;
+
+  &__section {
+    &--hype {
+      color: $white;
+      padding: 2rem 2rem 0 2rem;
+    }
+  }
+
+  .ice-cream-judge {
+    margin: auto;
+    display: block;
+    position: relative;
+    left: -40px;
+    transition: all 0.333s;
+    max-width: 100%;
+
+    @media (min-width: $small) {
+      float: left;
+      transform: rotate(-7deg);
+      top: -15px;
+      margin: 3px;
+      margin-right: -5px;
+      margin-bottom: 0;
+      max-width: 270px;
+    }
+  }
+
+  h2 {
+    margin-top: 0;
+  }
+
+  form {
+    background: transparent;
+    clear: both;
+    font-size: smaller;
+    margin: 0rem 2rem;
+    border: 5px dashed white;
+    margin: 1rem;
+    border-radius: 3px;
+
+    h2 {
+      color: $light-grey;
+    }
+
+    label {
+      color: $white;
+    }
+
+    input[type='submit'] {
+      max-width: 100%;
+    }
+
+    @media (max-width: $small) {
+      padding: 1rem;
+    }
+  }
+
+  @media (min-width: $medium + 90px) {
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+    align-items: center;
+    padding: 0.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3), 0 5px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (min-width: $large) {
+    margin: 1rem 0;
+  }
+}
+
+.marekting-card__heading {
+  font-family: $font-dq-italic;
+}

@@ -1,0 +1,12 @@
+mixin signupForm()
+  form.card(action="/become-a-blizzard-tester" method="POST")
+    h2 Welcome to the family
+    label(for="name") Name
+    input(type="text" id="name" name="name")
+    label(for="email") Email
+    input(type="email" id="email" name="email")
+    label(for="password") Password
+    input(type="password" id="password" name="password")
+    label(for="confirm-password") Confirm Password
+    input(type="password" id="confirm-password" name="confirm-password")
+    input.button(type="submit" value="Sign up to rate blizzards!")

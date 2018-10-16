@@ -1,0 +1,11 @@
+include _signupForm
+
+mixin marketingCard()
+  .marketing-card
+    .marketing-card__section--hype
+      h2.marekting-card__heading Hey there, blizzard fan!
+      img(src="/images/ice-cream-judge.png" alt="Ice cream judge" class="ice-cream-judge")
+      p Want to review your favourite DQ Blizzards, see what's trending in the Blizzard Community, and compare tasting notes with other blizzard aficionados?
+      p You've come to the right place!
+      p Sign up to add comments, log your blizzard experiences and to keep track of your most loved DQ Blizzards!
+    +signupForm()

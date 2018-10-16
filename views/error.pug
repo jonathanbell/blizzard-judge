@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  article
+    if status
+      h2= status
+      if message
+        p= message
+    else if message && !status
+      h2= message
+      - if (message == "404 Page Not Found!")
+        p Sorry, but that page has moved or does not exist.
+        br
+        a.button(href="/") Go Home
+      - else
+        p Sorry, an error has occured. Please go back and try again.
+    else
+      h2 Error!
+      if message
+        p= message
+      else
+        p Sorry, an error has occured. Please go back and try again.
+        br
+        a.button(href="/") Go Home
+    pre.error!= stackHighlighted

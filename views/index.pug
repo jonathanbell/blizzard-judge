@@ -1,0 +1,17 @@
+extends layout
+
+include mixins/_marketingCard
+include mixins/_blizzard
+
+block content
+
+  if !user
+    +marketingCard()
+
+  article.main-content#top-ten
+    h1 #{title}
+    if tagline
+      p= tagline
+    .blizzards
+      each blizzard in blizzards
+        +blizzard(blizzard)

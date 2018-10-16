@@ -1,0 +1,86 @@
+doctype html
+html(lang="en")
+
+  head
+    title= `${title.replace(/<[^>]+>/g, '')} | ${helpers.siteName}`
+    link(rel='stylesheet', href='/dist/style.css')
+    link(rel="icon" type="image/png" sizes="64x64" href="/images/ice-cream-judge-64x64.png")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    meta(name="description" content=`${helpers.siteDescription}`)
+
+  body
+    .wrapper
+
+      //- Site Header
+      block header
+        header.top
+          h1.visuallyhidden #{`${helpers.siteName}`}
+
+          //- Main Navigation
+          nav.nav
+            .inner
+
+              .nav__section.nav__section--home
+                a.nav__link.nav__link--logo(href="/" title="Top blizzards")
+                  != helpers.svg('gavel_blue')
+                  span.nav__main-title #{`${helpers.siteName}`}!
+
+              .nav__section.nav__section--search
+                .search#search
+                  input.search__input(type="text" placeholder="🔍 Search all blizzards..." name="search")
+                  .search__results
+
+              .nav__section.nav__section--pages
+                a.nav__link.nav__link--top-blizzards(href="/blizzards" title="All blizzards" class=(currentPath.startsWith('/blizzards') ? 'nav__link--active' : ''))
+                  != helpers.svg('top')
+                a.nav__link.nav__link--add-blizzard(href="/blizzard/add" title="Add a blizzard" class=(currentPath.startsWith('/blizzard/add') ? 'nav__link--active' : ''))
+                  != helpers.svg('add')
+                if user
+                  a.nav__link.nav__link--favorite(href="/blizzards/my-favorites" title="Your favorite blizzards" class=(currentPath.startsWith('/blizzards/my-favorites') ? 'nav__link--active' : ''))
+                    != helpers.svg('heart')
+                  span.heart-count #{`${user.favorites.length ? user.favorites.length : ''}`}
+
+              .nav__section.nav__section--user
+                if user
+                  a.nav__link.button.button--quiet.button--logout(href="/logout") Logout
+                  a.nav__link(href="/account" class=(currentPath.startsWith('/account') ? 'nav__link--active' : '') title="Your account")
+                    img.avatar(src=helpers.gravatar(user.email) alt=user.name)
+                else
+                  a.nav__link.button.button--quiet.button--sign-up(href="/become-a-blizzard-tester" class=(currentPath.startsWith('/become-a-blizzard-tester') ? 'nav__link--active' : '')) Sign Up
+                  a.nav__link.button(href="/login" class=(currentPath.startsWith('/login') ? 'nav__link--active' : '')) Log In
+
+      if user
+        .super-funky-bar
+
+      //- Flash Messages
+      block messages
+        if locals.flashes
+          - const categories = Object.keys(locals.flashes)
+          if categories.length
+            .inner
+              .flash-messages
+                each category in categories
+                  each message in flashes[category]
+                    .flash(class=`flash--${category}`)
+                      p.flash__text!= message
+                      button.flash__remove(onClick="this.parentElement.remove()") &times;
+
+      //- Main Content (from extended templates)
+      .inner
+        block content
+
+    //- Site Footer
+    .footer
+      div(class=`${user ? 'super-funky-bar' : 'super-boring-bar'}`)
+      footer.inner
+        .col1
+          img(src="/images/ice-cream-judge.png" alt="Ice cream judge" title="Sweet justice!" class="ice-cream-judge")
+        .col2
+          a(href="/about") About Blizzard Judge
+          br
+          img(src="https://img.shields.io/badge/status-beta-yellow.svg" alt="Application status: Beta")
+          small Blizzard Judge is (sadly) not associated with Dairy Queen&reg; in any way.
+
+    //- Scripts for all pages
+    block scripts
+      script(src="/dist/App.bundle.js")

@@ -1,0 +1,121 @@
+.reviews {
+  background: $white;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1), 0 3px 10px rgba(0, 0, 0, 0.05);
+  padding: 1rem 1.5rem 1.25rem 1.5rem;
+
+  h2 {
+    font-size: 2rem;
+    color: $purple;
+    margin-top: 0;
+
+    @media (min-width: $medium) {
+      grid-column: 1 / -1;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  @media (min-width: $medium) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+  }
+
+  @media (min-width: $large) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.review {
+  background: $white;
+  display: grid;
+  grid-template-columns: 130px auto;
+  margin-bottom: 1rem;
+
+  &__author {
+    text-align: center;
+    padding-top: 10px;
+
+    p {
+      margin: 5px 0;
+      color: lighten($black, 33.333%);
+    }
+  }
+
+  &__details {
+    border-left: 1px solid $grey;
+    padding-left: 1rem;
+  }
+
+  &__time,
+  &__stars {
+    display: inline-block;
+    margin-top: 0.5rem;
+  }
+
+  &__time {
+    font-size: small;
+    color: lighten($black, 33.333%);
+  }
+
+  &__stars {
+    color: $yellow;
+    cursor: help;
+  }
+
+  &__body {
+    padding: 1px;
+
+    & > p {
+      margin-top: 5px;
+    }
+  }
+
+  p {
+    white-space: pre-wrap;
+  }
+
+  @media (min-width: $medium) {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 420px) {
+    grid-template-columns: 100px auto;
+  }
+}
+
+.review-photos {
+  &__heading {
+    color: $green;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+
+    @media (min-width: $small) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media (min-width: $large) {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  &__photo {
+    object-fit: contain;
+    height: 100%;
+
+    &--container {
+      height: 110px;
+      text-align: center;
+
+      &:hover {
+        background-color: $light-grey;
+      }
+      @media (min-width: $large) {
+        height: 130px;
+      }
+    }
+  }
+}

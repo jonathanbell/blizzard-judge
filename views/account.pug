@@ -1,0 +1,24 @@
+extends layout
+
+include mixins/_blizzard
+
+block content
+
+    h2.visuallyhidden Your Account
+
+    h3.form-heading Edit Your Account
+    form.card(action="/account" method="POST")
+      p If you would like to reset your password, please <a href="/forgot">request a password reset via email</a>.
+      label(for="name") Name
+      input(type="text" name="name" value=user.name)
+      label(for="email") Email
+      input(type="email" name="email" value=user.email)
+      input.button(type="submit" value="Update Account")
+
+    if blizzards.length
+      section.card(style="padding: 2rem;")
+        h3 Your Blizzards
+        p Blizzards that you have contributed to #{`${helpers.siteName}`}.
+        .blizzards
+          each blizzard in blizzards
+            +blizzard(blizzard)

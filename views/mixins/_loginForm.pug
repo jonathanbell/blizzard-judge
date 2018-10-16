@@ -1,0 +1,9 @@
+mixin loginForm()
+  form.card(action="/login" method="POST")
+    h2 Login
+    p If you forgot your password, please #[a(href="/forgot") request a password reset link].
+    label(for="email") Email
+    input(type="email" id="email" name="email")
+    label(for="password") Password
+    input(type="password" id="password" name="password")
+    input.button(type="submit" value="Log In")

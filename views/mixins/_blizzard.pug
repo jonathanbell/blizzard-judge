@@ -1,0 +1,58 @@
+include _ratingsChart
+
+mixin blizzard(blizzard = {})
+
+  .blizzard
+
+    if user
+      .blizzard__action.blizzard__action--heart
+        form.heart(method="POST" action=`/api/v1/blizzard/${blizzard._id}/favorite`)
+          - const favoritesStrings = user.favorites.map(obj => obj.toString())
+          - const favoriteClass = favoritesStrings.includes(blizzard._id.toString()) ? 'heart__button--hearted' : ''
+          - const titleString = favoritesStrings.includes(blizzard._id.toString()) ? 'Remove from your favorites' : 'Add to your favorites'
+          button.heart__button(type="submit" title=titleString name="heart" class=favoriteClass)
+            != helpers.svg('heart')
+
+    a(href=`/blizzard/${blizzard.slug}` class="blizzard__link")
+      img(src=`${blizzard.cloudinaryId ? helpers.cloudinary(blizzard.cloudinaryId, 175) : '/images/anon-blizzard_small.png'}` alt=`${blizzard.name} Blizzard` class="blizzard__photo")
+
+    if blizzard.averageRating
+      p.blizzard__detail--average-rating(title="Average Rating")= blizzard.averageRating.toFixed(1)
+    else if blizzard.reviews.length
+      - let totalReviewScore = 0
+      for review in blizzard.reviews
+        - totalReviewScore = totalReviewScore + review.rating
+      p.blizzard__detail--average-rating(title="Average Rating") #{`${(totalReviewScore / blizzard.reviews.length).toFixed(1)}`}
+    else
+      div.nothing
+
+    .blizzard__details
+
+      h2.blizzard__detail--name
+        a(href=`/blizzard/${blizzard.slug}` class="blizzard__link") #{blizzard.name}
+      p.blizzard__detail--description !{blizzard.description.split(' ').slice(0, 100).join(' ')}
+
+      if blizzard.averageRating
+        +ratingsChart(blizzard)
+
+    .blizzard__actions
+
+      //- View it on DQ.com
+      if blizzard.docsUrl
+        .blizzard__action.blizzard__action--view-online
+          a(href=blizzard.docsUrl class="blizzard__detail--official-docs" title="View official blizzard webpage" target="_blank") View on DQ.com
+            br
+            img(src="/images/DQlogo_tiny.png" alt="Dairy Queen logo")
+
+      //- Review it!
+      .blizzard__action.blizzard__action--review
+        .blizzard__action.blizzard__action--count
+          span= blizzard.reviews.length
+        a(href=`/blizzard/${blizzard.slug}#reviews` title="Review this blizzard!")
+          != helpers.svg('review')
+
+      //- Edit it!
+      if user && blizzard.author.equals(user._id)
+        .blizzard__action.blizzard__action--edit
+          a(href=`/blizzard/${blizzard._id}/edit` title="Edit this blizzard")
+            != helpers.svg('pencil')

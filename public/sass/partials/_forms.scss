@@ -1,0 +1,82 @@
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  color: lighten($black, 10%);
+  border: 1px solid $grey;
+
+  &.input {
+    &--error {
+      border-color: red;
+    }
+  }
+}
+
+textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+label {
+  padding: 10px 0;
+  display: block;
+  font-size: 1.25rem;
+
+  &:first-of-type {
+    padding-top: 0;
+  }
+}
+
+form {
+  padding: 2rem;
+
+  input[type='submit'] {
+    margin-top: 1rem;
+
+    @media (min-width: $medium) {
+      max-width: 25%;
+    }
+  }
+
+  input[type='file'] {
+    border: 0;
+    padding: 0;
+    margin: 0;
+
+    @media (min-width: $medium) {
+      max-width: 25%;
+    }
+  }
+}
+
+// Favorites form (aka "heart")
+form.heart {
+  .heart__button {
+    background: none;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+
+    svg {
+      width: 50px;
+      fill: $grey;
+      transition: all 0.333s;
+      transform-origin: center center;
+
+      &:hover {
+        transform: rotate(-10deg);
+        fill: $yellow;
+      }
+    }
+
+    &--hearted {
+      svg {
+        fill: $green;
+
+        &:hover {
+          fill: $green;
+        }
+      }
+    }
+  }
+}

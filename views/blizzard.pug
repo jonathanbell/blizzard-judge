@@ -1,0 +1,59 @@
+extends layout
+
+include mixins/_ratingsChart
+include mixins/_reviewForm
+include mixins/_review
+
+block content
+
+  article.single
+
+    header
+      img.single__image(src=`${blizzard.cloudinaryId ? helpers.cloudinary(blizzard.cloudinaryId) : '/images/anon-blizzard_large.png'}` alt=blizzard.name)
+      h1.title.title--single= blizzard.name
+
+    section.single__details
+
+      p.single__description !{blizzard.description}
+
+      if blizzard.averageRating
+
+        h2 Blizzard Ranking
+        .single__details-grid
+
+          //- Rating Number
+          p(title="Average Rating" style="cursor: help;").blizzard__detail--average-rating= blizzard.averageRating.toFixed(1)
+
+          //- Photos
+          if blizzard.reviews
+            - let photoCount = 0
+            each review in blizzard.reviews
+              if review.cloudinaryId
+                - photoCount = photoCount + 1;
+            if photoCount > 0
+              .review-photos
+                h3.review-photos__heading Photos
+                p Blizzards consumed by Blizzard Judge users.
+                .review-photos__grid
+                  each review in blizzard.reviews
+                    if review.cloudinaryId
+                      a(href=helpers.cloudinary(review.cloudinaryId) class="review-photos__photo--container" title=`${blizzard.name} | Photo by: ${review.authorname}`)
+                        img(src=`${helpers.cloudinary(review.cloudinaryId, 163)}` class="review-photos__photo" alt=`User submitted photo of the ${blizzard.name} blizzard`)
+
+          //- Chart
+          +ratingsChart(blizzard)
+
+    - if (userId == blizzard.author.toString())
+      p.edit-blizz
+        a(href="#") Edit this blizzard
+          != helpers.svg('pencil')
+
+  if user
+    +reviewForm(blizzard)
+
+  if blizzard.reviews.length
+    .reviews#reviews
+      h2 Reviews
+      each review in blizzard.reviews
+        if review.authoremail && review.rating
+          +review(review)

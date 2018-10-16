@@ -1,0 +1,27 @@
+mixin reviewForm(blizzard)
+
+  form.reviewer#review(action=`/blizzard/${blizzard._id}/review` method="POST" enctype="multipart/form-data")
+
+    h2.reviewer__heading Review This Blizzard
+    - const reviewers = []
+    - blizzard.reviews.forEach(review => reviewers.push(review.author))
+    - if (reviewers.includes(userId.toString()))
+        p Submiting another review will update your existing one.
+    - else
+        p How does the <strong>#{blizzard.name}</strong> stack up?
+
+    .reviewer__stars
+      - let reviewLables = ['Excellent', 'Good', 'Average', 'Poor', 'Terrible']
+      - reviewLables = reviewLables.reverse()
+      each num in [5, 4, 3, 2, 1]
+        input(type="radio" id=`star${num}` name="rating" value=`${num}`)
+        label(for=`star${num}` title=`${reviewLables[num - 1]}`) #{num} Stars
+
+    label(for="text") Your comments (optional)
+    textarea(name="text" id="text" placeholder="Please share details of your DQ Blizzard experience")
+
+    label(for="photo") Add a photo of your blizzard (optional)
+    input(type="file" id="photo" name="photo" accept="image/gif, image/png, image/jpeg")
+    small (10MB max file size)
+
+    input.button(type="submit" value="Submit your review")

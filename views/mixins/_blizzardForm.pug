@@ -1,0 +1,25 @@
+mixin blizzardForm(blizzard = {})
+
+  form.card(action=`/blizzard/add/${blizzard._id ? blizzard._id : ''}` method="POST" enctype="multipart/form-data")
+
+    p Thanks for contributing to Blizzard Judge! Adding your own blizzard here helps to drive our search for the best blizzard forward. Be sure to #[a(href="/blizzards#search") search for your blizzard] before adding it. Who knows, it just might already be here!
+
+    p Adding a custom blizzard is totally "cool" too. A name like, "Cookie Dough (no chocolate fudge)" would probably be a good name for it. Avoiding names that are not descriptive like, "Joe's Favorite Sugar Bomb" will help others find your blizzard in the future.
+
+    label(for="name") Name
+    input(type="text" id="name" name="name" value=blizzard.name placeholder="The blizzard's name as it appears on the menu or your custom name (see above)")
+
+    label(for="description") Description
+    textarea(name="description" id="description" placeholder="Describe this blizzard. What are its ingredients?")= blizzard.description
+    p Please keep this impartial. After you add a blizzard, you can review it with your own comments.
+
+    label(for="photo") Photo
+    input(type="file" name="photo" id="photo" accept="image/gif, image/png, image/jpeg")
+    small (10MB max file size)
+    p This photo becomes the blizzard's thumbnail in the rankings and is optional. In order to leave a photo with your review, first add the blizzard and then reivew it.
+
+    if blizzard.cloudinaryId
+      p(style="margin-bottom: 0") Current photo:
+      img(src=helpers.cloudinary(blizzard.cloudinaryId, 200) alt=blizzard.name)
+
+    input(type="submit" value=`${actionText ? actionText : 'Add New Blizzard'}` class="button")

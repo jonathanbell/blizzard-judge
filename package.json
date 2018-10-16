@@ -29,7 +29,7 @@
     "dev": "concurrently \"npm run watch\" \"npm run assets\"",
     "load-dq-data": "node ./data/load-dq-data.js",
     "start": "node ./start.js",
-    "deploy": "now --dotenv=variables.env"
+    "deploy": "now"
   },
   "browserslist": [
     "last 1 version",

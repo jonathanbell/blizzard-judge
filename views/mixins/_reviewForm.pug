@@ -18,7 +18,7 @@ mixin reviewForm(blizzard)
         label(for=`star${num}` title=`${reviewLables[num - 1]}`) #{num} Stars
 
     label(for="text") Your comments (optional)
-    textarea(name="text" id="text" placeholder="Please share details of your DQ Blizzard experience")
+    textarea(name="text" id="text" placeholder=`Please share the details of your ${blizzard.name} blizzard experience.`)
 
     label(for="photo") Add a photo of your blizzard (optional)
     input(type="file" id="photo" name="photo" accept="image/gif, image/png, image/jpeg")

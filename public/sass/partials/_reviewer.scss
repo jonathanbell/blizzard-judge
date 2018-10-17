@@ -35,7 +35,14 @@
 
       & + label {
         font-size: 0;
-        color: $dqblue;
+        color: $grey;
+        cursor: pointer;
+
+        // https://css-tricks.com/text-stroke-stuck-middle/
+        -moz-text-stroke: $yellow 2px;
+        -webkit-text-stroke: $yellow 2px;
+        text-stroke: $yellow 2px;
+        paint-order: stroke fill;
 
         &:before {
           content: '★';

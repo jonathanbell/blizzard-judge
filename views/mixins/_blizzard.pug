@@ -44,14 +44,14 @@ mixin blizzard(blizzard = {})
             br
             img(src="/images/DQlogo_tiny.png" alt="Dairy Queen logo")
 
-      //- Read reviews!
+      //- Read reviews or review it
       .blizzard__action.blizzard__action--review
         .blizzard__action.blizzard__action--count
           span= blizzard.reviews.length
-        a(href=`/blizzard/${blizzard.slug}#reviews` title=`${blizzard.reviews.length == 1 ? blizzard.reviews.length + ' review' : blizzard.reviews.length + ' reviews'}`)
+        a(href=`/blizzard/${blizzard.slug}#review${blizzard.reviews.length < 1 ? '' : 's'}` title=`${blizzard.reviews.length == 1 ? blizzard.reviews.length + ' review' : blizzard.reviews.length + ' reviews'}`)
           != helpers.svg('review')
 
-      //- Edit it!
+      //- Edit it
       if user && blizzard.author.equals(user._id)
         .blizzard__action.blizzard__action--edit
           a(href=`/blizzard/${blizzard._id}/edit` title="Edit this blizzard")

@@ -88,4 +88,8 @@ p {
 
 .main-content > h1 {
   color: $dqblue;
+
+  & + p:first-of-type {
+    margin-bottom: 3rem;
+  }
 }

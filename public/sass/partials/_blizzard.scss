@@ -181,6 +181,15 @@
 
   @media (max-width: $small) {
     font-size: 2rem;
+
+    -ms-word-break: break-all;
+    word-break: break-all;
+    // non-standard (for Wedkit, I think)
+    word-break: break-word;
+    -moz-hyphens: auto;
+    // doesn't seem to work on Chrome???
+    -webkit-hyphens: auto;
+    hyphens: auto;
   }
 }
 

@@ -41,7 +41,6 @@
     h5 {
       color: $pink;
       font-size: 1.5rem;
-      margin-bottom: 0;
       margin-top: 1rem;
     }
 
@@ -99,4 +98,16 @@
 
 .title--single {
   color: $dqred;
+
+  @media (max-width: $small) {
+    font-size: 2.75rem;
+
+    // https://css-tricks.com/almanac/properties/w/word-break/
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+  }
 }

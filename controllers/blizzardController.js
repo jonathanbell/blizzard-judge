@@ -220,7 +220,8 @@ exports.getHighestRated = async (req, res) => {
     title: `The Top ${blizzards.length} Highest Rated Blizzard${
       blizzards.length == 1 ? '' : 's'
     }`,
-    tagline: 'The best of the best.',
+    tagline:
+      'These are the best of the best. You can view all of the blizzards on the <a href="/blizzards">listings page</a>.',
     blizzards
   });
 };

@@ -11,7 +11,7 @@ block content
   article.main-content#top-ten
     h1 #{title}
     if tagline
-      p= tagline
+      p !{tagline}
     .blizzards
       each blizzard in blizzards
         +blizzard(blizzard)

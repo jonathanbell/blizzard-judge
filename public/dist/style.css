@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Niramit);@charset "UTF-8";
+@charset "UTF-8";
 html {
   box-sizing: border-box; }
 
@@ -650,17 +650,25 @@ template {
     transform: translate3d(0, 0, 0); } }
 
 @font-face {
+  font-family: 'Niramit';
+  font-display: auto;
+  src: local("Niramit Regular"), local("Niramit-Regular"), url(https://fonts.gstatic.com/s/niramit/v2/I_uuMpWdvgLdNxVLXbNakw.woff2) format("woff2"); }
+
+@font-face {
   font-family: 'PlutoBold-Italic';
+  font-display: auto;
   src: url("/fonts/237A5F_0_0.eot");
   src: url("/fonts/237A5F_0_0.eot?#iefix") format("embedded-opentype"), url("/fonts/237A5F_0_0.woff") format("woff"), url("/fonts/237A5F_0_0.ttf") format("truetype"); }
 
 @font-face {
   font-family: 'PlutoBold';
+  font-display: auto;
   src: url("/fonts/237A5F_1_0.eot");
   src: url("/fonts/237A5F_1_0.eot?#iefix") format("embedded-opentype"), url("/fonts/237A5F_1_0.woff") format("woff"), url("/fonts/237A5F_1_0.ttf") format("truetype"); }
 
 @font-face {
   font-family: 'PlutoHeavy';
+  font-display: auto;
   src: url("/fonts/237A5F_2_0.eot");
   src: url("/fonts/237A5F_2_0.eot?#iefix") format("embedded-opentype"), url("/fonts/237A5F_2_0.woff") format("woff"), url("/fonts/237A5F_2_0.ttf") format("truetype"); }
 
@@ -840,6 +848,9 @@ form.heart .heart__button {
     fill: #85b681; }
     form.heart .heart__button--hearted svg:hover {
       fill: #85b681; }
+
+img + input[type='submit'] {
+  display: block; }
 
 .search {
   position: relative;
@@ -1099,6 +1110,9 @@ form.heart .heart__button {
         width: 1px;
         top: -4rem;
         left: -4rem; } }
+    @media (max-width: 800px) {
+      .blizzard__action--heart + .blizzard__link {
+        margin-top: -6rem !important; } }
   .blizzard__action--view-online {
     z-index: 999; }
   .blizzard__action--edit a {
@@ -1171,8 +1185,8 @@ form.heart .heart__button {
         margin-bottom: 0; } }
     @media (max-width: 800px) {
       .blizzard > .blizzard__link {
-        margin-top: 10px;
-        margin-bottom: 10px; } }
+        margin-top: 20px;
+        margin-bottom: 20px; } }
   @media (min-width: 800px) {
     .blizzard {
       display: -ms-grid;
@@ -1220,8 +1234,8 @@ form.heart .heart__button {
     display: grid;
     -ms-grid-rows: 10px;
         grid-template-rows: 10px;
-    -ms-grid-columns: 51px 19fr 3fr;
-        grid-template-columns: 51px 19fr 3fr;
+    -ms-grid-columns: 57px 19fr 3fr;
+        grid-template-columns: 57px 19fr 3fr;
     margin-bottom: 3px; }
     .blizzard__detail--ratings-chart .row:last-of-type {
       margin-bottom: 0; }
@@ -1230,6 +1244,8 @@ form.heart .heart__button {
     -ms-flex-item-align: center;
         -ms-grid-row-align: center;
         align-self: center; }
+  .blizzard__detail--ratings-chart .percentage {
+    padding-left: 2px; }
   .blizzard__detail--ratings-chart .bar,
   .blizzard__detail--ratings-chart .fill {
     border-radius: 3px; }
@@ -1655,5 +1671,9 @@ pre.error {
           -ms-grid-row-align: center;
           align-self: center;
       text-align: right; }
+      @media (max-width: 599px) {
+        .footer footer .col2 small {
+          text-align: left;
+          margin-top: 1rem; } }
 
 /*# sourceMappingURL=style.css.map*/

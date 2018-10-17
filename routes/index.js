@@ -34,7 +34,7 @@ router.get(
 router.get('/', catchErrors(blizzardController.getHighestRated));
 router.get('/blizzards', catchErrors(blizzardController.getBlizzards));
 router.get(
-  '/blizzards/my-favorites',
+  '/blizzards/your-favorites',
   authController.isLoggedIn,
   catchErrors(blizzardController.myFavoriteBlizzards)
 );

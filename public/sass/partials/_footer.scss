@@ -43,6 +43,13 @@
       justify-self: end;
       align-self: center;
       text-align: right;
+
+      small {
+        @media (max-width: $small) {
+          text-align: left;
+          margin-top: 1rem;
+        }
+      }
     }
   }
 }

@@ -80,3 +80,8 @@ form.heart {
     }
   }
 }
+
+// hack alert!
+img + input[type='submit'] {
+  display: block;
+}

@@ -9,6 +9,7 @@ block content
     h3.form-heading Edit Your Account
     form.card(action="/account" method="POST")
       p If you would like to reset your password, please <a href="/forgot">request a password reset via email</a>.
+      p Your profile photo can be changed by visiting <a href="https://gravatar.com/">Gravatar.com</a>.
       label(for="name") Name
       input(type="text" name="name" value=user.name)
       label(for="email") Email

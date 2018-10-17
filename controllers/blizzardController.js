@@ -156,6 +156,11 @@ exports.myFavoriteBlizzards = async (req, res) => {
 
     res.render('blizzards', {
       title: 'Your Favorite Blizzards',
+      tagline: `${
+        favoriteBlizzards.length
+          ? 'A list of your favorites!'
+          : "Haven't favorited any blizzards (yet)."
+      }`,
       blizzards: favoriteBlizzards,
       suggestedBlizzard
     });
@@ -212,7 +217,9 @@ exports.getCommunityFavoriteBlizzards = async (req, res) => {
 exports.getHighestRated = async (req, res) => {
   const blizzards = await Blizzard.getHighestRated();
   res.render('index', {
-    title: 'The Top 10 Highest Rated Blizzards',
+    title: `The Top ${blizzards.length} Highest Rated Blizzard${
+      blizzards.length == 1 ? '' : 's'
+    }`,
     tagline: 'The best of the best.',
     blizzards
   });

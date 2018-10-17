@@ -16,7 +16,7 @@ exports.dump = obj => JSON.stringify(obj, null, 2);
 // Get a Gravatar
 exports.gravatar = email => {
   const hash = md5(email);
-  return `https://gravatar.com/avatar/${hash}?s=200`;
+  return `https://gravatar.com/avatar/${hash}?s=200&d=identicon`;
 };
 
 // Insert a SVG inline

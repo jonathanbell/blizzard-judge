@@ -6,10 +6,14 @@ html(lang="en")
       title= `${title.replace(/<[^>]+>/g, '')} | ${helpers.siteName}`
     else
       title= `${helpers.siteName}`
+    link(rel='dns-prefetch', href='https://res.cloudinary.com')
     link(rel='stylesheet', href='/dist/style.css')
     link(rel="icon" type="image/png" sizes="64x64" href="/images/ice-cream-judge-64x64.png")
     meta(name="viewport" content="width=device-width, initial-scale=1")
     meta(name="description" content=`${helpers.siteDescription}`)
+    meta(name="theme-color" content="#007AC3")
+    meta(name="msapplication-navbutton-color" content="#007AC3")
+    meta(name="apple-mobile-web-app-status-bar-style" content="#007AC3")
 
   body
     .wrapper
@@ -39,7 +43,7 @@ html(lang="en")
                 a.nav__link.nav__link--add-blizzard(href="/blizzard/add" title="Add a blizzard" class=(currentPath.startsWith('/blizzard/add') ? 'nav__link--active' : ''))
                   != helpers.svg('add')
                 if user
-                  a.nav__link.nav__link--favorite(href="/blizzards/my-favorites" title="Your favorite blizzards" class=(currentPath.startsWith('/blizzards/my-favorites') ? 'nav__link--active' : ''))
+                  a.nav__link.nav__link--favorite(href="/blizzards/your-favorites" title="Your favorite blizzards" class=(currentPath.startsWith('/blizzards/your-favorites') ? 'nav__link--active' : ''))
                     != helpers.svg('heart')
                   span.heart-count #{`${user.favorites.length ? user.favorites.length : ''}`}
 

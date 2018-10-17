@@ -45,7 +45,7 @@ block content
 
     - if (userId == blizzard.author.toString())
       p.edit-blizz
-        a(href="#") Edit this blizzard
+        a(href=`/blizzard/${blizzard._id}/edit`) Edit this blizzard
           != helpers.svg('pencil')
 
   if user

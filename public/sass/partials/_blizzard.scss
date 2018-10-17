@@ -43,6 +43,12 @@
         top: -4rem;
         left: -4rem;
       }
+
+      @media (max-width: $medium) {
+        & + .blizzard__link {
+          margin-top: -6rem !important; // I know... I know..
+        }
+      }
     }
 
     &--view-online {
@@ -129,8 +135,8 @@
     }
 
     @media (max-width: $medium) {
-      margin-top: 10px;
-      margin-bottom: 10px;
+      margin-top: 20px;
+      margin-bottom: 20px;
     }
   }
 
@@ -149,7 +155,6 @@
 }
 
 .blizzard__detail--average-rating {
-  //justify-self: center;
   color: $dqblue;
   font-weight: 800;
   font-size: 60px;
@@ -188,7 +193,7 @@
     grid-gap: 3px;
     display: grid;
     grid-template-rows: 10px;
-    grid-template-columns: 51px 19fr 3fr;
+    grid-template-columns: 57px 19fr 3fr;
     margin-bottom: 3px;
 
     &:last-of-type {
@@ -199,6 +204,10 @@
   .ranking,
   .percentage {
     align-self: center;
+  }
+
+  .percentage {
+    padding-left: 2px;
   }
 
   .bar,

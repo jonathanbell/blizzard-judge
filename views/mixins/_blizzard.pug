@@ -44,11 +44,11 @@ mixin blizzard(blizzard = {})
             br
             img(src="/images/DQlogo_tiny.png" alt="Dairy Queen logo")
 
-      //- Review it!
+      //- Read reviews!
       .blizzard__action.blizzard__action--review
         .blizzard__action.blizzard__action--count
           span= blizzard.reviews.length
-        a(href=`/blizzard/${blizzard.slug}#reviews` title="Review this blizzard!")
+        a(href=`/blizzard/${blizzard.slug}#reviews` title=`${blizzard.reviews.length == 1 ? blizzard.reviews.length + ' review' : blizzard.reviews.length + ' reviews'}`)
           != helpers.svg('review')
 
       //- Edit it!

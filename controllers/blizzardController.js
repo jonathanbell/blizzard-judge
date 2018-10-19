@@ -236,7 +236,8 @@ exports.getBlizzardBySlug = async (req, res, next) => {
 
   const blizzard = blizzards[0];
 
-  // TODO: Fix. Make more efficient. Cloud probably do this in the DB...
+  // TODO: Fix. Make more efficient. Cloud probably do this in the DB itself...
+  blizzard.reviews.reverse();
   blizzard.reviews.forEach((review, i) => {
     blizzard.reviewUsers.forEach(user => {
       if (review.author.toString() == user._id.toString()) {

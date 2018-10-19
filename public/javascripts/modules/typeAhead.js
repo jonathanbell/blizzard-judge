@@ -35,11 +35,16 @@ function typeAhead(search) {
           searchResults.innerHTML = dompurify.sanitize(html);
           return;
         }
-        searchResults.innerHTML = dompurify.sanitize(
-          `<div class="search__result">No results for <em>${
+
+        let suggestionStr = `<div class="search__result">No results found for <em>${
+          this.value
+        }</em>.</div>`;
+        if (this.value.length > 5) {
+          suggestionStr = `<div class="search__result">No results found for <em>${
             this.value
-          }</em> found.</div>`
-        );
+          }</em>. <a style="font-weight: bolder; color: #28A3FB;" href="/blizzard/add">Add it</a> to Blizzard Judge?</div>`;
+        }
+        searchResults.innerHTML = dompurify.sanitize(suggestionStr);
       })
       .catch(err => console.error(err));
   });

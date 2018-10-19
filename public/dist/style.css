@@ -1242,8 +1242,8 @@ img + input[type='submit'] {
     display: grid;
     -ms-grid-rows: 10px;
         grid-template-rows: 10px;
-    -ms-grid-columns: 57px 19fr 3fr;
-        grid-template-columns: 57px 19fr 3fr;
+    -ms-grid-columns: 57px 1fr 37px;
+        grid-template-columns: 57px 1fr 37px;
     margin-bottom: 3px; }
     .blizzard__detail--ratings-chart .row:last-of-type {
       margin-bottom: 0; }
@@ -1366,7 +1366,8 @@ img + input[type='submit'] {
     fill: #28a3fb;
     position: relative;
     bottom: -10px;
-    margin-left: 10px; }
+    margin-left: 10px;
+    margin-bottom: 3px; }
 
 .title--single {
   color: #ee3a43; }

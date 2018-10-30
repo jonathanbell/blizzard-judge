@@ -68,12 +68,12 @@ app.use((req, res, next) => {
   next();
 });
 
-// Redirect from www to non-www inside Zeit `now` service:
+// Redirect from non-www to www:
 // https://zeit.co/docs/guides/redirect#2.-redirect-inside-your-app
 app.use((req, res, next) => {
-  // If the request doesn't come from blizzardjudge.com or from the Zeit deployment URL:
+  // If the request doesn't come from www.blizzardjudge.com or from localhost:
   if (req.hostname !== process.env.APPHOST && req.hostname !== 'localhost') {
-    // Redirect to blizzardjudge.com keeping the pathname and querystring intact.
+    // Redirect to www.blizzardjudge.com keeping the pathname and querystring intact.
     return res.redirect(`https://${process.env.APPHOST}${req.originalUrl}`);
   }
 

@@ -29,7 +29,7 @@
     "dev": "concurrently \"npm run watch\" \"npm run assets\"",
     "load-dq-data": "node ./data/load-dq-data.js",
     "start": "node ./start.js",
-    "deploy": "now && now alias && now scale blizzardjudge 1"
+    "deploy": "now && now alias"
   },
   "now": {
     "alias": [

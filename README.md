@@ -21,6 +21,10 @@ After a blizzard has been reviewed 2 or more times, it will be added to the lege
 
 You can seed the database with some live data from the Dairy Queen® Canada website by running `npm run load-dq-data`. This will check if the blizzards on [this page](https://www.dairyqueen.com/ca-en/Menu/Treats/) are already located in your database and, if not, add them to your blizzard collection.
 
+### Deployment (Heroku)
+
+You can `python heroku-config.py` to add all of the Heroky "config variables" at once to Heroku. Then just it's just a `heroku push master` kinda thang...
+
 ### Tech Stack
 
 Blizzard Judge uses the following:

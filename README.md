@@ -1,10 +1,10 @@
 # Blizzard Judge
 
-This is the source code for [BlizzardJudge.com](https://blizzardjudge.com), the web app that helps answer the age old question: "Which is the very best Dairy Queen® blizzard?"
+This is the source code for [BlizzardJudge.com](http://blizzardjudge.com), the web app that helps answer the age old question: "Which is the very best Dairy Queen® blizzard?"
 
 Users can create an account and then start rating and reviewing blizzards. Users can also create their own custom blizzards and have others comment and review their creations. Photos are attached to reviews in order to document true blizzard verdicts.
 
-After a blizzard has been reviewed 2 or more times, it will be added to the legendary [Top Ten List](https://blizzardjudge.com#top-ten).
+After a blizzard has been reviewed 2 or more times, it will be added to the legendary [Top Ten List](http://blizzardjudge.com#top-ten).
 
 ## Developer Installation
 
